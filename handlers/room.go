@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"server/models"
 
-	"github.com/google/uuid"
+	"server/utils"
 )
 
 // Create a new room
@@ -21,7 +21,7 @@ func CreateRoom(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Generate a unique room ID
-	roomID := uuid.New().String()
+	roomID := utils.GenerateUniqueID()
 
 	// Create a new room and add it to the rooms map
 	newRoom := &models.Room{
